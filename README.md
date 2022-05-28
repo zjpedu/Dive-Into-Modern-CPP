@@ -2,4 +2,7 @@
 
 #### Outline
 
-* final and override
+* 01 final and override
+* 02 lambda expression
+* 03 typdef, typename and using
+
