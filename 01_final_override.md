@@ -21,3 +21,4 @@ struct BaseX final {};
 */
 virtual void f(int) final {};
 ```
+最佳实践：**在多继承关系的函数中加 virtual 是非常好的习惯**。
