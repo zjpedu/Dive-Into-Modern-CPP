@@ -12,3 +12,4 @@
 * 08 heap memory layout
 * 09 range-based for statement and for_each
 * 10 universal reference and rvalue reference
+* 11 inline
