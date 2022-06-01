@@ -1,5 +1,6 @@
 #include <iostream>
 #include <typeinfo>
+#include <vector>
 
 namespace test_auto_decltype{
 	const int & i = 5;
@@ -31,7 +32,7 @@ namespace test_auto_decltype{
 		decltype(m + 0) q; // 正确，说明 decltype 只要简单的运算就可以使得原先变量放弃 const 语义
 		auto p1 = m + n;  // 这里表达式的推断没有 const 语义
 		std::cout << "m + n = " << p << std::endl;
-		
+
 		double x0 = 1.0;
 		const double &x1 = x0;
 		auto x2 = x1;  // 所以这里推断出的 x2 类型实际上是 double x2，没有 const 和 引用 & 属性，推导出的类型实际上就是 double x2;
@@ -94,8 +95,19 @@ namespace test_function_template_auto
 } // namespace test_function_template_auto
 
 
+namespace test_misc{
+	int main(){
+		std::vector<int> v {1,2,3,4};
+		auto len = v.size();
+		// unsigned long len = v.size();  // 在我的 mac 平台上推导出的类型
+		std::cout << "typeid(len) = " << typeid(len).name() << std::endl;  // typeid(len) = m m 表示 unsigned long, 所以推导正确
+		return 0;
+	}
+}
+
 int main(){
-	// test_auto_decltype::main();
+	test_auto_decltype::main();
     test_function_template_auto::main();
+	test_misc::main();
 	return 0;
 }
