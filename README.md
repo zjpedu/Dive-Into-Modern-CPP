@@ -1,5 +1,14 @@
 ### Dive Into Modern CPP
 
+#### How to run the project
+
+```shell
+mkdir build
+cd build
+cmake --build ..
+```
+
+If you may add the different cpp files, you should add executable file in `CMakeLists.txt`.
 #### Outline
 
 * 01 final and override [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.cpp)
@@ -13,3 +22,4 @@
 * 09 range-based for statement and for_each
 * 10 universal reference and rvalue reference
 * 11 inline [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_1.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_2.cpp)
+* 12 nullptr, 0, and NULL
