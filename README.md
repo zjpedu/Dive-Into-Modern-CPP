@@ -2,10 +2,11 @@
 
 #### How to run the project
 
+In macos, it use the vscode compile and run cmake project:
+
 ```shell
-mkdir build
-cd build
-cmake --build ..
+command + shift + B # select "compile" or "run" or "cmake" or "mkbuild"  tasks.json
+F5  # debug launch.json
 ```
 
 If you may add the different cpp files, you should add executable file in `CMakeLists.txt`.

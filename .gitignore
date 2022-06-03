@@ -1,10 +1,7 @@
-# 忽略 IDE 配置文件
-.vscode/
-
 # 忽略调试文件
 *.dSYM/
 
 .DS_Store/
 
-# 忽略 CMakeFiles 中的内容
-.CMakeFiles/
+# cmake 工作目录
+build/
