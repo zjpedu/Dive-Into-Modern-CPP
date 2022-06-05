@@ -7,6 +7,16 @@ I write the `tasks.json` and `launch.json` files to use easily the project.
 
 ```shell
 command + shift + B # select "compile" or "run" or "cmake" or "mkbuild"  tasks.json
+```
+
+Then select the following options:
+
+1. mkbuild. It will build directory for the compile and run.
+2. cmake. It will issue the Makefile.
+3. compile. It will build the project.
+4. run. It will run the some executable file in tasks.json.
+
+```shell
 F5  # debug launch.json
 ```
 
