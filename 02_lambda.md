@@ -148,9 +148,15 @@ int main(){
 
 #### lambda 设计中需要思考的问题
 
-##### lambda 捕获
+##### lambda introducer capture
 
-##### lambda 形参
+[Lambda introduer capture](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/imgs/lambda_introducer.png)
+##### lambda parameters
 
+没有什么可多说的,就是普通函数的参数而已.
 
 ##### std::bind 与 lambda 使用场景探讨
+
+TODO. 但是尽量少用 std::bind 也是现代 C++ 开发的重点. 因为 std::bind 实际在调用者和
+被调用者之间增加了一层,这一中间层的加入使得参数的传递发生了变化.
+如果要传入引用,需要 使用 std::ref, 如果要传入 const 常量则需要 std::cref,这无疑看起来不友好.

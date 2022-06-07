@@ -2,7 +2,13 @@
 
 The project is aim to dive into c++ new features for languages and standard library.
 It is important to understand the nature of the new features. The C++ language
-is getting better and better. But I prefer rust now 😅.
+is getting better and better. These features are what I usually use more often.
+But I prefer rust now 😅.
+
+### C++ Standard
+
+C++ 11, C++ 14, C++ 17, and C++ 20 are used usually.
+
 ### How to run the project
 
 In macos,I use the vscode to `mkbuild`, `cmake`, `compile`, and `run` the project.
@@ -24,7 +30,9 @@ F5  # debug launch.json
 ```
 
 If you may add the different cpp files, you should add executable file in `CMakeLists.txt`.
+
 ### Outline of New Features
+
 #### Languages
 * 01 final and override [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.cpp)
 * 02 lambda and functor [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/02_lambda.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/02_lambda.cpp)
@@ -39,9 +47,16 @@ If you may add the different cpp files, you should add executable file in `CMake
 * 11 inline [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_1.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_2.cpp)
 * 12 nullptr, 0, and NULL [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.cpp)
 * 13 variadic templates and recursive programming [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.cpp)
+* 14 Default Initializers for Member Variables and POD [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.cpp)
 #### Standard Library
+
 * SL1 type trait and C++ template [Document]() [Code]()
 * SL2 std::bind and std::thread pass by reference [Document]() [Code]()
+
 ### Contribute
 
 If you want to add new features, please open the pull requests.
+
+### References
+
+1. https://arne-mertz.de/category/cpp/modern-cpp/

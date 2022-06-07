@@ -43,17 +43,17 @@ namespace test_introducer{
     };
 
 	void Widget::addFilter() const{
-		int divisorCopy = divisor;
-		std::cout << "&divisorCopy = " << &divisorCopy << " " <<"&divisor = " << &divisor << std::endl;
+		// int divisorCopy = divisor;
+		// std::cout << "&divisorCopy = " << &divisorCopy << " " <<"&divisor = " << &divisor << std::endl;
 		// std::cout <<"&divisor = " << &divisor << std::endl;
-		std::cout << "divisorCopy = " << divisor << " " << "divisor = " << this->divisor << std::endl;
+		// std::cout << "divisorCopy = " << divisor << " " << "divisor = " << this->divisor << std::endl;
 		// std::cout << "divisor = " << divisor << std::endl;
 		std::cout << "----------" << std::endl;
 		// filters.emplace_back([divisor = divisor]() -> bool{
-		filters.emplace_back([&divisorCopy, this]() -> bool{
+		// filters.emplace_back([&divisorCopy, this]() -> bool{
 		// filters.emplace_back([=]() -> bool{
 		// filters.emplace_back([&]() -> bool{
-		// filters.emplace_back([divisor = divisor]() -> bool{
+		filters.emplace_back([divisorCopy = divisor, this]() -> bool{
 			std::cout << "&divisorCopy = " << &divisorCopy << " " <<"&divisor = " << &divisor << std::endl;
 			// std::cout <<"&divisor = " << &divisor << std::endl;
 			std::cout << "divisorCopy = " << divisorCopy << " " << "divisor = " << this->divisor << std::endl;
@@ -64,15 +64,15 @@ namespace test_introducer{
 	/*
 		如果我们去掉 doSomework(), 将其逻辑移动到 main 函数中,那么上面我们采用 & 或者 = 捕获就能得到正确的结果.
 	*/
-	// void doSomework(){
-	// 	auto pw = new Widget(1000);
-	// 	pw->addFilter();
-	// }
-
-	int main(){
-		// doSomework();
+	void doSomework(){
 		auto pw = new Widget(1000);
 		pw->addFilter();
+	}
+
+	int main(){
+		doSomework();
+		// auto pw = new Widget(1000);
+		// pw->addFilter();
 		filters[0]();
 		return 0;
 	}
@@ -182,12 +182,48 @@ namespace test_function_template_lambda{
 	}
 }
 
+/*
+with f1, we specify that we want to capture everything
+that we need by value; this does not "capture" the value
+of g at the time we declare it because g is globally availabe,
+there is only one copy 
+
+with f2, we explicitly say that we want to capture g
+by value at the point the lambda is delcared, so the 
+value of g at the time of the declaration is what is
+captured by the lambda, and it does not reflect the 
+value after it is updated in the body of main()
+*/
+
+// naturally, these print different values; what happened?
+int g = 10;
+namespace test_puzzle{
+
+	int main()
+	{
+		auto f1 = [=]() { return g + 1; };
+		auto f2 = [new_g=g](){ return new_g + 1; };
+		g = 20;
+		auto f3 = [g=g](){ return g + 1; };
+
+		std::cout << "f1() = " << f1() << std::endl;  // 21
+		std::cout << "f2() = " << f2() << std::endl;  // 11
+		std::cout << "f3() = " << f3() << std::endl;  // 21
+
+		// 这个语法我们称为带有初始化表达式的初始化捕获
+		auto f4 = [g = 1, value = 10](){return g+value;};  // An initializer expression in a capture list is also called an init capture.
+		std::cout << "f3() = " << f4() << std::endl;  // 11
+		return 0;
+	}
+}
+
 int main(){
 	// test_lambda::main();
 	// test_introducer::main();
 	// test_introducer_global_variable::main();
 	// test_lambda_closure_class::main();
 	// test_lambda_copy::main();
-	test_function_template_lambda::main();
+	// test_function_template_lambda::main();
+	test_puzzle::main();
 	return 0;
 }
