@@ -198,11 +198,22 @@ value after it is updated in the body of main()
 // naturally, these print different values; what happened?
 int g = 10;
 namespace test_puzzle{
+	struct Test_This{
+		int x = 100;
+		int y = 20;
+	};
 
 	int main()
 	{
-		auto f1 = [=]() { return g + 1; };
-		auto f2 = [new_g=g](){ return new_g + 1; };
+		auto f1 = [=]() {
+				std::cout << "Function Name: " << __PRETTY_FUNCTION__ << " ,Line: " << __LINE__ << std::endl;
+				return g + 1;
+			};
+		auto f2 = [new_g {g}](){  // new_g 是闭包类的成员变量? Yes
+				std::cout << "Function Name: " << __PRETTY_FUNCTION__ << " ,Line: " << __LINE__ << std::endl;
+				std::cout << "typeid: " << typeid(new_g).name() << std::endl;
+				return new_g + 1;
+			};
 		g = 20;
 		auto f3 = [g=g](){ return g + 1; };
 
@@ -213,6 +224,11 @@ namespace test_puzzle{
 		// 这个语法我们称为带有初始化表达式的初始化捕获
 		auto f4 = [g = 1, value = 10](){return g+value;};  // An initializer expression in a capture list is also called an init capture.
 		std::cout << "f3() = " << f4() << std::endl;  // 11
+		auto f5 = [new_x = std::move(std::make_shared<Test_This>()->x)](){  // new_g 是闭包类的成员变量? Yes
+				std::cout << "Function Name: " << __PRETTY_FUNCTION__ << " ,Line: " << __LINE__ << std::endl;
+				return new_x + 1;
+		};
+		std::cout << "f5() = " << f5() << std::endl;
 		return 0;
 	}
 }

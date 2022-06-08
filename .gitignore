@@ -2,6 +2,7 @@
 *.dSYM/
 
 .DS_Store/
+imgs/.DS_Store
 
 # cmake 工作目录
 build/

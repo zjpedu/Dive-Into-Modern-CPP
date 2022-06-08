@@ -8,7 +8,7 @@ lambda 应该是 function programming 带给 C++ 最大的改变之一,但是 la
 我们经常用 lambda 表达式作为回调函数.有了 function programming 中的 lambda, C++ 的语言确实
 感觉更便捷了.
 
-#### lambda 的形式与相关理论
+#### lambda 名次解释
 
 * lambda 表达式
 lambda 表达式都是以 `[]` 开始,满足下面的形式,都被称为 lambda 表达式.
@@ -26,12 +26,12 @@ lambda 表达式都是以 `[]` 开始,满足下面的形式,都被称为 lambda 
 
 ```C++
 std::for_each(v.begin(), v.end(), [](int i){
-			i++;
-			std::cout << i << " ";
+				i++;
+				std::cout << i << " ";
 			});
 std::for_each(v.begin(), v.end(), [](int &i){
-			i++;
-			std::cout << i << " ";
+				i++;
+				std::cout << i << " ";
 			});
 ```
 
@@ -151,12 +151,55 @@ int main(){
 ##### lambda introducer capture
 
 [Lambda introduer capture](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/imgs/lambda_introducer.png)
+
+C++ 14 增加了 init capture 的概念,所以我们可以在 [] 处用任何方法定义**匿名闭包类的成员函数**,
+这极大丰富了 C++ lambda 的语义,测试代码如下:
+
+```C++
+int g = 10;
+namespace test_puzzle{
+	struct Test_This{
+		int x = 100;
+		int y = 20;
+	};
+
+	int main()
+	{
+		auto f1 = [=]() {
+				std::cout << "Function Name: " << __PRETTY_FUNCTION__ << " ,Line: " << __LINE__ << std::endl;
+				return g + 1;
+			};
+		auto f2 = [new_g {g}](){  // new_g 是闭包类的成员变量? Yes
+				std::cout << "Function Name: " << __PRETTY_FUNCTION__ << " ,Line: " << __LINE__ << std::endl;
+				std::cout << "typeid: " << typeid(new_g).name() << std::endl;
+				return new_g + 1;
+			};
+		g = 20;
+		auto f3 = [g=g](){ return g + 1; };
+
+		std::cout << "f1() = " << f1() << std::endl;  // 21
+		std::cout << "f2() = " << f2() << std::endl;  // 11
+		std::cout << "f3() = " << f3() << std::endl;  // 21
+
+		// 这个语法我们称为带有初始化表达式的初始化捕获
+		auto f4 = [g = 1, value = 10](){return g+value;};  // An initializer expression in a capture list is also called an init capture.
+		std::cout << "f3() = " << f4() << std::endl;  // 11
+		auto f5 = [new_x = std::move(std::make_shared<Test_This>()->x)](){  // new_g 是闭包类的成员变量? Yes
+				std::cout << "Function Name: " << __PRETTY_FUNCTION__ << " ,Line: " << __LINE__ << std::endl;
+				return new_x + 1;
+		};
+		std::cout << "f5() = " << f5() << std::endl;
+		return 0;
+	}
+}
+```
 ##### lambda parameters
 
 没有什么可多说的,就是普通函数的参数而已.
 
 ##### std::bind 与 lambda 使用场景探讨
 
-TODO. 但是尽量少用 std::bind 也是现代 C++ 开发的重点. 因为 std::bind 实际在调用者和
-被调用者之间增加了一层,这一中间层的加入使得参数的传递发生了变化.
-如果要传入引用,需要 使用 std::ref, 如果要传入 const 常量则需要 std::cref,这无疑看起来不友好.
+尽量少用 std::bind. 因为 std::bind 实际在调用者和被调用者之间增加了一层,
+这一中间层使得参数的传递发生了变化.
+* 如果要传入引用,需要 使用 std::ref;
+* 如果要传入 const 常量则需要 std::cref,这不友好.

@@ -1,3 +1,8 @@
+![Github stars](https://img.shields.io/github/stars/jpzhu-edu/Dive-Into-Modern-CPP.svg)
+![github language](https://img.shields.io/badge/language-C++-green.svg)
+![](https://img.shields.io/github/license/jpzhu-edu/Dive-Into-Modern-CPP.svg)
+![](https://img.shields.io/github/forks/jpzhu-edu/Dive-Into-Modern-CPP.svg)
+
 ## Dive Into Modern CPlusPlus
 
 The project is aim to dive into c++ new features for languages and standard library.
@@ -51,8 +56,12 @@ If you may add the different cpp files, you should add executable file in `CMake
 #### Standard Library
 
 * SL1 type trait and C++ template [Document]() [Code]()
-* SL2 std::bind and std::thread pass by reference [Document]() [Code]()
+* SL2 std::bind and std::thread [Document]() [Code]()
 
+#### Template Techniques
+
+
+#### Concurrency
 ### Contribute
 
 If you want to add new features, please open the pull requests.
@@ -60,3 +69,7 @@ If you want to add new features, please open the pull requests.
 ### References
 
 1. https://arne-mertz.de/category/cpp/modern-cpp/
+2. Effective Modern C++, by Scott Meyers
+3. C++ Crash Course: A Fast-Paced Introduction, by Josh Lospinoso
+4. C++ Template: The Completion Guide (2nd), by David Vandevoorde
+5. C++ Concurrency in Action (2nd). by ANTHONY WILLIAMS
