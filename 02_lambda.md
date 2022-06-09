@@ -203,3 +203,61 @@ namespace test_puzzle{
 这一中间层使得参数的传递发生了变化.
 * 如果要传入引用,需要 使用 std::ref;
 * 如果要传入 const 常量则需要 std::cref,这不友好.
+
+```C++
+namespace test_bind_object_pass_by_value{
+	using namespace std::placeholders;
+	void func(int a, int &b){
+		a++;
+		b++;
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+	}
+	int main(){
+		int a = 1;
+		int b = 2;
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+
+		auto f = std::bind(func, _1, std::ref(b));  // pass by reference using std::ref
+		f(a);  // call f bind object. a pass to placeholder _1 for bind object f
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+		return 0;
+	}
+}
+
+namespace test_bind_object_pass_by_ref{
+	using namespace std::placeholders;
+	void func(int &a, int &b){
+		a++;
+		b++;
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+	}
+	int main(){
+		int a = 1;
+		int b = 2;
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+
+		auto f = std::bind(func, _1, std::ref(b));  // pass by reference using std::ref
+		f(a);  // call f bind object
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+		return 0;
+	}
+}
+
+int main(){
+	std::cout << "----- pass by value -----" << std::endl;
+	test_bind_object_pass_by_value::main();
+	std::cout << "----- pass by reference -----" << std::endl;
+	test_bind_object_pass_by_ref::main();
+	return 0;
+}
+
+```
+
+从上面例子的输出我们得出:
+* 在 `std::bind` 中想要使用引用方式传递参数,必须通过 `std::ref` 或 `std:cref` 两种
+方式,否则就以默认 copy 的方式传递参数.
+* std::bind 参数传递过程中,到底是 pass-by-value 还是 pass-by-reference 都不是那么明显,
+需要调用方特别的小心.
+* 加上 std namespace placeholder 之后的结果更加扑朔迷离.
+
+根据官方文档, 从 C++ 14 开始, `std::bind` 已经彻底失去了用武之地.

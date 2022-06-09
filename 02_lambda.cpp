@@ -233,6 +233,44 @@ namespace test_puzzle{
 	}
 }
 
+namespace test_bind_object_pass_by_value{
+	using namespace std::placeholders;
+	void func(int a, int &b){
+		a++;
+		b++;
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+	}
+	int main(){
+		int a = 1;
+		int b = 2;
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+
+		auto f = std::bind(func, _1, std::ref(b));  // pass by reference using std::ref
+		f(a);  // call f bind object. a pass to placeholder _1 for bind object f
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+		return 0;
+	}
+}
+
+namespace test_bind_object_pass_by_ref{
+	using namespace std::placeholders;
+	void func(int &a, int &b){
+		a++;
+		b++;
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+	}
+	int main(){
+		int a = 1;
+		int b = 2;
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+
+		auto f = std::bind(func, _1, std::ref(b));  // pass by reference using std::ref
+		f(a);  // call f bind object
+		std::cout << "a = " << a << ", b = " << b <<std::endl;
+		return 0;
+	}
+}
+
 int main(){
 	// test_lambda::main();
 	// test_introducer::main();
@@ -240,6 +278,9 @@ int main(){
 	// test_lambda_closure_class::main();
 	// test_lambda_copy::main();
 	// test_function_template_lambda::main();
-	test_puzzle::main();
+	// test_puzzle::main();
+	test_bind_object_pass_by_value::main();
+	std::cout << "-----------" << std::endl;
+	test_bind_object_pass_by_ref::main();
 	return 0;
 }

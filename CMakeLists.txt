@@ -36,4 +36,7 @@ add_executable(test5 05_auto_decltype.cpp)
 add_executable(test6 06_initializer_list.cpp)
 add_executable(test11 11_inline.cpp test_inline_1.cpp test_inline_2.cpp)
 add_executable(test12 12_nullptr.cpp)
+# add_executable(test13 13_variadic_template.cpp)
 add_executable(test14 14_default_initializer.cpp)
+
+add_executable(test_hanoi hanoi.cpp)
