@@ -40,3 +40,19 @@ add_executable(test12 12_nullptr.cpp)
 add_executable(test14 14_default_initializer.cpp)
 
 add_executable(test_hanoi hanoi.cpp)
+
+# Iterator the files to automatically get the executable file
+# file(GLOB_RECURSE _sources RELATIVE
+#   "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+# )
+# foreach(_source IN LISTS _sources)
+#  get_filename_component(_dest ${_source} NAME_WE)
+#  add_executable(${_dest} ${_source})
+#  set_target_properties(${_dest}
+#    PROPERTIES
+#      CXX_STANDARD 20
+#      CXX_EXTENSIONS OFF
+#      CXX_STANDARD_REQUIRED ON
+#      POSITION_INDEPENDENT_CODE 1
+#  )
+# endforeach()

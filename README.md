@@ -57,6 +57,9 @@ If you may add the different cpp files, you should add executable file in `CMake
 
 * SL1 type trait and C++ template [Document]() [Code]()
 * SL2 std::bind and std::thread [Document]() [Code]()
+* SL3 hash<T> [Document]() [Code]()
+* SL4 Allocator [Document]() [Code]()
+* SL5 std::any and std::any_cast[Document]() [Code]()
 
 #### Template Techniques
 
