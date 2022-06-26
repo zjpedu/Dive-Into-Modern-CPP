@@ -56,11 +56,11 @@ If you may add the different cpp files, you should add executable file in `CMake
 #### Standard Library
 
 * SL1 type trait and C++ template [Document]() [Code]()
-* SL2 std::bind and std::thread [Document]() [Code]()
+* SL2 std::bind [Document]() [Code]()
 * SL3 hash<T> [Document]() [Code]()
 * SL4 Allocator [Document]() [Code]()
-* SL5 std::any and std::any_cast[Document]() [Code]()
-
+* SL5 std::any [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.cpp)
+* SL6 std::function
 #### Template Techniques
 
 

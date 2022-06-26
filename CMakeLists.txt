@@ -26,7 +26,6 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_EXTENSIONS OFF)
 endif(NOT CMAKE_CXX_STANDARD)
 
-
 # 一个个增加可执行文件,也就是一个个增加所有包含 main 函数的文件,将其编译为可执行文件
 add_executable(test1 01_final_override.cpp)
 add_executable(test2 02_lambda.cpp)
@@ -38,8 +37,8 @@ add_executable(test11 11_inline.cpp test_inline_1.cpp test_inline_2.cpp)
 add_executable(test12 12_nullptr.cpp)
 # add_executable(test13 13_variadic_template.cpp)
 add_executable(test14 14_default_initializer.cpp)
-
-add_executable(test_hanoi hanoi.cpp)
+add_executable(sl5_any sl5_any.cpp)
+# add_executable(test_hanoi hanoi.cpp)
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE
