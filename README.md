@@ -8,7 +8,6 @@
 The project is aim to dive into c++ new features for languages and standard library.
 It is important to understand the nature of the new features. The C++ language
 is getting better and better. These features are what I usually use more often.
-But I prefer rust now 😅.
 
 ### C++ Standard
 

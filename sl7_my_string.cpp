@@ -25,7 +25,7 @@ public:
 		_init_data(p);
 	}
 	// 拷贝构造函数
-	String(const String& str) : _len(str._len) {
+	explicit String(const String& str) : _len(str._len) {
 		cout << "CCtor, " << "this = " << this << ", &str = " << &str << endl;
 		_init_data(str._data);
 	}
@@ -40,18 +40,18 @@ public:
 		return *this;
 	}
 	// 移动构造函数，加上noexcept是为了让vector重新分配内存时调用
-	String(String&& str) noexcept : _data(str._data), _len(str._len) {
+	explicit String(String&& str) noexcept : _data(std::move(str._data)), _len(std::move(str._len)) {
 		cout << "MCtor, " << "this = " << this << ", &str = " << &str << endl;
 		str._len = 0;
 		str._data = nullptr;
 	}
 	// 移动赋值运算符，加上noexcept是为了让vector重新分配内存时调用
-	String& operator= (String&& str) noexcept {
+	String& operator=(String&& str) noexcept {
 		cout << "MAsgn, " << "this = " << this << ", &str = " << &str << endl;
 		if (this != &str) {
 			if (_data) delete[] _data;
-			_len = str._len;
-			_data = str._data;
+			_len = std::move(str._len);
+			_data = std::move(str._data);
 			str._len = 0;
 			str._data = nullptr;
 		}
@@ -97,9 +97,12 @@ ostream& operator<< (ostream& os, const String& s) {
 }
 
 int main() {
-	String() = "xxxx";   // why?
+	// String() = "xxxx";   // why?
 	// String str {String{"hello world"}}; // Copy elision https://en.cppreference.com/w/cpp/language/copy_elision
-	// String str = std::move(String{"hello world"});
-	// String s {"hello, world~"};
+	// String str {std::move(String{"hello world"})};
+	String str{};
+	str.operator=(std::move(String{"hello world"}));  // move assignment
+	// const String s {"hello, world~"}; // CCtor, this = 0x16db4f2a0, &str = 0x16db4f2b8
+	// String s {"hello, world~"}; // MCtor, this = 0x16d2872a0, &str = 0x16d2872b8
 	// String str1{std::move(s)};
 }
