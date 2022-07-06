@@ -1,7 +1,7 @@
-![Github stars](https://img.shields.io/github/stars/jpzhu-edu/Dive-Into-Modern-CPP.svg)
+![Github stars](https://img.shields.io/github/stars/zjpedu/Dive-Into-Modern-CPP.svg)
 ![github language](https://img.shields.io/badge/language-C++-green.svg)
-![](https://img.shields.io/github/license/jpzhu-edu/Dive-Into-Modern-CPP.svg)
-![](https://img.shields.io/github/forks/jpzhu-edu/Dive-Into-Modern-CPP.svg)
+![](https://img.shields.io/github/license/zjpedu/Dive-Into-Modern-CPP.svg)
+![](https://img.shields.io/github/forks/zjpedu/Dive-Into-Modern-CPP.svg)
 
 ## Dive Into Modern CPlusPlus
 
