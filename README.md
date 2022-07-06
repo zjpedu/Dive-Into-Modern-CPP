@@ -61,10 +61,17 @@ If you may add the different cpp files, you should add executable file in `CMake
 * SL4 Allocator [Document]() [Code]()
 * SL5 std::any [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.cpp)
 * SL6 std::function
+* SL7 std::string [Document]() [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl7_my_string.cpp)
 #### Template Techniques
 
 
 #### Concurrency
+
+
+#### Design Pattern
+
+* DP1 ScopeGuard and RAII [Document]() [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_scopeguard.cpp)
+
 ### Contribute
 
 If you want to add new features, please open the pull requests.

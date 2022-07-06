@@ -97,9 +97,9 @@ ostream& operator<< (ostream& os, const String& s) {
 }
 
 int main() {
-	String() = "xxxx";
+	String() = "xxxx";   // why?
 	// String str {String{"hello world"}}; // Copy elision https://en.cppreference.com/w/cpp/language/copy_elision
-        // String str = std::move(String{"hello world"});
-        // String s {"hello, world~"};
-        // String str1{std::move(s)};
+	// String str = std::move(String{"hello world"});
+	// String s {"hello, world~"};
+	// String str1{std::move(s)};
 }

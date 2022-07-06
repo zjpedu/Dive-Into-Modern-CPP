@@ -13,7 +13,7 @@ file (GLOB_RECURSE SOURCE_FILES *.cpp)
 # C standard can be overridden when this is used as a sub-project.
 if(NOT CMAKE_C_STANDARD)
   # This project can use C20, but will gracefully decay down to C89.
-  set(CMAKE_C_STANDARD 20)
+  set(CMAKE_C_STANDARD 17)
   set(CMAKE_C_STANDARD_REQUIRED OFF)
   set(CMAKE_C_EXTENSIONS OFF)
 endif(NOT CMAKE_C_STANDARD)
@@ -21,7 +21,7 @@ endif(NOT CMAKE_C_STANDARD)
 # C++ standard can be overridden when this is used as a sub-project.
 if(NOT CMAKE_CXX_STANDARD)
   # This project requires C++20.
-  set(CMAKE_CXX_STANDARD 20)
+  set(CMAKE_CXX_STANDARD 17)
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
   set(CMAKE_CXX_EXTENSIONS OFF)
 endif(NOT CMAKE_CXX_STANDARD)
@@ -39,7 +39,8 @@ add_executable(test12 12_nullptr.cpp)
 add_executable(test14 14_default_initializer.cpp)
 add_executable(sl5_any sl5_any.cpp)
 # add_executable(test_hanoi hanoi.cpp)
-add_executable(str my_string.cpp)
+add_executable(str sl7_my_string.cpp)
+add_executable(dp1 dp1_scopeguard.cpp)
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE
