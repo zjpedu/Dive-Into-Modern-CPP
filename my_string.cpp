@@ -98,8 +98,8 @@ ostream& operator<< (ostream& os, const String& s) {
 
 int main() {
 	String() = "xxxx";
-	// String str {std::move(String{"hello world"})};
-    // String str = std::move(String{"hello world"});
-    // String s {"hello, world~"};
-    // String str1{std::move(s)};
+	// String str {String{"hello world"}}; // Copy elision https://en.cppreference.com/w/cpp/language/copy_elision
+        // String str = std::move(String{"hello world"});
+        // String s {"hello, world~"};
+        // String str1{std::move(s)};
 }
