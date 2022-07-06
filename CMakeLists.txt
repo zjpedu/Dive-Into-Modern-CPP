@@ -39,6 +39,7 @@ add_executable(test12 12_nullptr.cpp)
 add_executable(test14 14_default_initializer.cpp)
 add_executable(sl5_any sl5_any.cpp)
 # add_executable(test_hanoi hanoi.cpp)
+add_executable(str my_string.cpp)
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE

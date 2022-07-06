@@ -75,4 +75,4 @@ If you want to add new features, please open the pull requests.
 2. Effective Modern C++, by Scott Meyers
 3. C++ Crash Course: A Fast-Paced Introduction, by Josh Lospinoso
 4. C++ Template: The Completion Guide (2nd), by David Vandevoorde
-5. C++ Concurrency in Action (2nd). by ANTHONY WILLIAMS
+5. C++ Concurrency in Action (2nd). by Anthony Williams
