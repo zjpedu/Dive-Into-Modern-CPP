@@ -23,7 +23,7 @@ public:
             m_func();
     }
 
-    ScopeGuard(ScopeGuard && rhs) : 
+    ScopeGuard(ScopeGuard && rhs) :
         m_func(std::move(rhs.m_func)), m_dismiss(rhs.m_dismiss){
             rhs.dismiss();
     }
@@ -55,9 +55,6 @@ void FileProcess()
     //fclose(fp);
 }
 
-
-
-
 void invoke(int data)
 {
         if(data<0)
@@ -75,44 +72,38 @@ void process()
         cityStack.push("Shanghai"s);
         auto lamb = [&](){
             string s=cityStack.top();
-            cityStack.pop(); 
+            cityStack.pop();
             cout<<"roll back: "<<s<<endl;
             };
-        // ScopeGuard scopeGuard{ [&]{ 
+        // ScopeGuard scopeGuard{ [&]{
         //     string s=cityStack.top();
-        //     cityStack.pop(); 
+        //     cityStack.pop();
         //     cout<<"roll back: "<<s<<endl;
         //     }
         // };
         ScopeGuard scopeGuard1{lamb};
         ScopeGuard scopeGuard2{[&](){
             string s=cityStack.top();
-            cityStack.pop(); 
+            cityStack.pop();
             cout<<"roll back: "<<s<<endl;
             }};
-  
+
         cout<<"invoke..."<<endl;
         invoke(-100);
 
         scopeGuard1.dismiss();
         scopeGuard2.dismiss();
     }
-    
+
 }
 
 
-
 int main(){
-
     try {
-
         process();
-
-         
    } catch(invalid_argument& e) {
        cerr<<"invalid arg: " << e.what()<<endl;
    }
-  
 }
 
 // class scope_guard {
@@ -184,10 +175,10 @@ int main(){
 //     A a2{i, i};      // OK, #1 deduces to A<int> and also initializes
 //     A a3{0, i};      // OK, #2 deduces to A<int> and also initializes
 //     A a4 = {0, i};   // OK, #2 deduces to A<int> and also initializes
-    
+
 //     template<class T> A(const T&, const T&) -> A<T&>; // #3
 //     template<class T> explicit A(T&&, T&&)  -> A<T>;  // #4
-    
+
 //     A a5 = {0, 1};   // error: #3 deduces to A<int&>
 //                         // and #1 & #2 result in same parameter constructors.
 //     A a6{0,1};       // OK, #4 deduces to A<int> and #2 initializes
