@@ -71,6 +71,9 @@ If you may add the different cpp files, you should add executable file in `CMake
 
 * DP1 ScopeGuard and RAII [Document]() [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_scopeguard.cpp)
 
+
+# Memory Management
+* MM1 class memory layout [imgs1]() [imgs2]() [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm1_memory_layout.cpp)
 ### Contribute
 
 If you want to add new features, please open the pull requests.

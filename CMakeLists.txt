@@ -41,6 +41,7 @@ add_executable(sl5_any sl5_any.cpp)
 # add_executable(test_hanoi hanoi.cpp)
 add_executable(str sl7_my_string.cpp)
 add_executable(dp1 dp1_scopeguard.cpp)
+add_executable(ma memory_layout.cpp)
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE
