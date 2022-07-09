@@ -73,7 +73,7 @@ If you may add the different cpp files, you should add executable file in `CMake
 
 
 # Memory Management
-* MM1 class memory layout [imgs1]() [imgs2]() [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm1_memory_layout.cpp)
+* MM1 class memory layout [imgs1](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_1.jpeg) [imgs2](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_2.jpeg) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm1_memory_layout.cpp)
 ### Contribute
 
 If you want to add new features, please open the pull requests.
