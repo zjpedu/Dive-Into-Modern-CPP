@@ -40,8 +40,10 @@ add_executable(test14 14_default_initializer.cpp)
 add_executable(sl5_any sl5_any.cpp)
 # add_executable(test_hanoi hanoi.cpp)
 add_executable(str sl7_my_string.cpp)
-add_executable(dp1 dp1_scopeguard.cpp)
-add_executable(ma memory_layout.cpp)
+add_executable(scoupguard dp1_scopeguard.cpp)
+add_executable(raii dp1_raii.cpp)
+add_executable(ma mm1_memory_layout.cpp)
+# add_executable(exception exception_ctor_dtor.cpp)
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE

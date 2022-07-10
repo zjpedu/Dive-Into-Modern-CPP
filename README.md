@@ -69,7 +69,7 @@ If you may add the different cpp files, you should add executable file in `CMake
 
 #### Design Pattern
 
-* DP1 ScopeGuard and RAII [Document]() [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_scopeguard.cpp)
+* DP1 ScopeGuard and RAII [Document]() [ScopeGuard Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_scopeguard.cpp) [RAII Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_raii.cpp)
 
 
 # Memory Management
