@@ -40,20 +40,20 @@ public:
 		return *this;
 	}
 	// 移动构造函数，加上noexcept是为了让vector重新分配内存时调用
-	explicit String(String&& str) noexcept : _data(std::move(str._data)), _len(std::move(str._len)) {
+	explicit String(String&& str) noexcept : _data(str._data), _len(str._len) noexcept {
 		cout << "MCtor, " << "this = " << this << ", &str = " << &str << endl;
 		str._len = 0;
-		str._data = nullptr;
+		str._data = nullptr;   // 注意这里要考虑为什么 nullptr 操作？ 可能会存在重复删除的问题，但是 delete nullptr 是合法无异常的
 	}
 	// 移动赋值运算符，加上noexcept是为了让vector重新分配内存时调用
 	String& operator=(String&& str) noexcept {
 		cout << "MAsgn, " << "this = " << this << ", &str = " << &str << endl;
 		if (this != &str) {
 			if (_data) delete[] _data;
-			_len = std::move(str._len);
-			_data = std::move(str._data);
+			_len = str._len;
+			_data = str._data;
 			str._len = 0;
-			str._data = nullptr;
+			str._data = nullptr; // 注意这里要考虑为什么 nullptr 操作？ 可能会存在重复删除的问题，但是 delete nullptr 是合法无异常的
 		}
 		return *this;
 	}
