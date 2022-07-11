@@ -45,6 +45,7 @@ add_executable(raii dp1_raii.cpp)
 add_executable(ma mm1_memory_layout.cpp)
 # add_executable(exception exception_ctor_dtor.cpp)
 add_executable(olebco mm2_object_layout_ebco.cpp)
+add_executable(mm3 mm3_virtual_function_layout.cpp)
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE
