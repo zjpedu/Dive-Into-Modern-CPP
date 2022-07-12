@@ -70,7 +70,7 @@ If you may add the different cpp files, you should add executable file in `CMake
 #### Design Pattern
 
 * DP1 ScopeGuard and RAII [Document]() [ScopeGuard Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_scopeguard.cpp) [RAII Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_raii.cpp)
-
+* DP2 CRTP and `virtual clone` virtual constructor design idiom [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp2_crtp_virtual_clone.cpp)
 # Memory Management
 
 * MM1 class memory layout [imgs1](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_1.jpeg) [imgs2](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_2.jpeg) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm1_memory_layout.cpp)
