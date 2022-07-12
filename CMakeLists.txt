@@ -37,15 +37,19 @@ add_executable(test11 11_inline.cpp test_inline_1.cpp test_inline_2.cpp)
 add_executable(test12 12_nullptr.cpp)
 # add_executable(test13 13_variadic_template.cpp)
 add_executable(test14 14_default_initializer.cpp)
-add_executable(sl5_any sl5_any.cpp)
+add_executable(test15 15_rvo.cpp)
+
 # add_executable(test_hanoi hanoi.cpp)
-add_executable(str sl7_my_string.cpp)
-add_executable(scoupguard dp1_scopeguard.cpp)
-add_executable(raii dp1_raii.cpp)
-add_executable(ma mm1_memory_layout.cpp)
-# add_executable(exception exception_ctor_dtor.cpp)
-add_executable(olebco mm2_object_layout_ebco.cpp)
+
+add_executable(sl5 sl5_any.cpp)
+add_executable(sl7 sl7_my_string.cpp)
+
+add_executable(mm1 mm1_memory_layout.cpp)
+add_executable(mm2 mm2_object_layout_ebco.cpp)
 add_executable(mm3 mm3_virtual_function_layout.cpp)
+
+add_executable(dp1 dp1_scopeguard.cpp)
+add_executable(dp1_raii dp1_raii.cpp)
 add_executable(dp2 dp2_crtp_virtual_clone.cpp)
 add_executable(dp3 Pimpl/dp3_Pimpl_idiom.cpp Pimpl/abi.h)
 

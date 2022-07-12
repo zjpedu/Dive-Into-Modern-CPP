@@ -8,7 +8,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${cwd}/build/dp3",
+            "program": "${cwd}/build/test15",
             "args": [],
             "cwd": "${workspaceFolder}"
         }
