@@ -52,7 +52,7 @@ If you may add the different cpp files, you should add executable file in `CMake
 * 12 nullptr, 0, and NULL [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.cpp)
 * 13 variadic templates and recursive programming [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.cpp)
 * 14 Default Initializers for Member Variables and POD [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.cpp)
-* Return Value Optimization [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.cpp)
+* 15 Return Value Optimization [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.cpp)
 #### Standard Library
 
 * SL1 type trait and C++ template [Document]() [Code]()
@@ -72,6 +72,7 @@ If you may add the different cpp files, you should add executable file in `CMake
 
 * DP1 ScopeGuard and RAII [Document]() [ScopeGuard Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_scopeguard.cpp) [RAII Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_raii.cpp)
 * DP2 CRTP and `virtual clone` virtual constructor design idiom [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp2_crtp_virtual_clone.cpp)
+* DP3 PImpl [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/dp3_Pimpl_idiom.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/dp3_Pimpl_idiom.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/abi.h)
 # Memory Management
 
 * MM1 class memory layout [imgs1](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_1.jpeg) [imgs2](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_2.jpeg) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm1_memory_layout.cpp)
@@ -87,3 +88,4 @@ If you want to add new features, please open the pull requests.
 3. C++ Crash Course: A Fast-Paced Introduction, by Josh Lospinoso
 4. C++ Template: The Completion Guide (2nd), by David Vandevoorde
 5. C++ Concurrency in Action (2nd). by Anthony Williams
+6. C++ core guidelines https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines

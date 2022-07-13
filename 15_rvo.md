@@ -8,7 +8,7 @@
 {
     // Named Return Value Optimization, 要求 Base(Base&&) 必须存在，但是不会调用
     // Non-standard
-    Base b = create_nrvo(); 
+    Base b = create_nrvo();
 }
 ```
 

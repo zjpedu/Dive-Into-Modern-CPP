@@ -17,7 +17,7 @@ namespace test_rvo{
 		Base(const Base &){
 			std::cout << "Base copy ctor" << std::endl;
 		};
-		
+
 		Base& operator=(const Base&){
 			std::cout << "Base operator= copy assigment" << std::endl;
 			return *this;
@@ -59,7 +59,7 @@ namespace test_rvo{
 			Base b(1000, 2000);
 			b = create_rvo();
 		}
-		
+
 
 		/* 未初始化的对象才会使用 RVO */
 		std::cout << "--------" << std::endl;
