@@ -66,7 +66,7 @@
 		{
 			"label": "run",
 			"type": "shell",
-			"command": "${cwd}/build/test15", // 这里需要频繁修改
+			"command": "${cwd}/build/dp2_1", // 这里需要频繁修改
 			"group": "build",
 			"presentation": {
 				"echo": true,
