@@ -17,3 +17,5 @@ void process(Shape* s){
     Shape* s_clone = s->clone(); // 这里会根据实参类型调用合适的 clone 函数，从而实现上述功能
 }
 ```
+
+**注意: CRTP 是编译时多态性.**

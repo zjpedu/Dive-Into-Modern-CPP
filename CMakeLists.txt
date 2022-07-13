@@ -51,8 +51,11 @@ add_executable(mm3 mm3_virtual_function_layout.cpp)
 add_executable(dp1 dp1_scopeguard.cpp)
 add_executable(dp1_raii dp1_raii.cpp)
 add_executable(dp2 dp2_crtp_virtual_clone.cpp)
+add_executable(dp2_1 dp2_crtp.cpp)
 add_executable(dp3 Pimpl/dp3_Pimpl_idiom.cpp Pimpl/abi.h)
-
+add_executable(dp4_1 template_method/dp4_template_method_1.cpp)
+add_executable(dp4_2 template_method/dp4_template_method_2.cpp)
+add_executable(dp4_3 template_method/dp4_crtp_template_method.cpp)
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE
 #   "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
