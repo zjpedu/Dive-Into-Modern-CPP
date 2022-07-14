@@ -38,7 +38,6 @@ add_executable(test12 12_nullptr.cpp)
 # add_executable(test13 13_variadic_template.cpp)
 add_executable(test14 14_default_initializer.cpp)
 add_executable(test15 15_rvo.cpp)
-
 # add_executable(test_hanoi hanoi.cpp)
 
 add_executable(sl5 sl5_any.cpp)
@@ -55,6 +54,7 @@ add_executable(dp2_1 dp2_crtp.cpp)
 add_executable(dp3 Pimpl/dp3_Pimpl_idiom.cpp Pimpl/abi.h)
 add_executable(dp4_1 template_method/dp4_template_method_1.cpp)
 add_executable(dp4_2 template_method/dp4_template_method_2.cpp)
+add_executable(dp4_3 template_method/dp4_crtp_template_method.cpp)
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE

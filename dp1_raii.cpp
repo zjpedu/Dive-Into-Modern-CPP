@@ -1,4 +1,7 @@
-#include <cstdlib>
+/*
+	C++ 之父把 RAII 比作 C++ 的垃圾回收器, 并且我们很确定它的调用时间,比 Java 的垃圾回收器
+	具有更多的确定性. 所以 RAII、智能指针、移动语义这三驾马车保证了 C++ 高效的资源管理机制.
+*/
 #include <iostream>
 using namespace std;
 
@@ -9,12 +12,12 @@ public:
 
 	}
 
-	~SmartPtr() { 
+	~SmartPtr() {
 		delete p_;
 	}
-	void release() { 
+	void release() {
 		delete p_;
-		p_ = nullptr; 
+		p_ = nullptr;
 	}
 
 	T* operator->() { return p_; }
@@ -28,7 +31,7 @@ private:
 	// 当前 delete 的原因是该 class 的数据成员是指针，
 	// 默认生成的拷贝构造函数和拷贝赋值函数是错误的，在这个例子中这俩函数不重要，
 	// 所以选择 delete
-	SmartPtr(const SmartPtr&) = delete;  
+	SmartPtr(const SmartPtr&) = delete;
 	SmartPtr& operator=(const SmartPtr&) = delete;
 };
 
@@ -45,32 +48,29 @@ public:
 };
 
 
-void process(int data) 
+void process(int data)
 {
-    cout<<"process start"<<endl;
+	cout<<"process start"<<endl;
 
-    //MyClass mc;  // 栈对象，最终出了作用域时会调用其析构函数
+	//MyClass mc;  // 栈对象，最终出了作用域时会调用其析构函数,即使出现异常也会被调用
 
-    // MyClass* p=new MyClass(); // 当后面出错时，会跳过溪沟函数
-    SmartPtr p(new MyClass());  // RAII 智能指针
+	// MyClass* p=new MyClass(); // 当后面出错时，会跳过溪沟函数
+	SmartPtr p(new MyClass());  // RAII 智能指针
 
-    if(data<0){
-        invalid_argument exp("data");
-        throw exp;
-    }
-    
-    cout<<"process end"<<endl;
-    // delete p;  // MyClass* p=new MyClass(); // 当后面出错时，会跳过溪沟函数
+	if(data<0){
+		invalid_argument exp("data");
+		throw exp;
+	}
+
+	cout<<"process end"<<endl;
+	// delete p;  // MyClass* p=new MyClass(); // 当后面出错时，会跳过溪沟函数
 }
 
 int main() {
 
-    try {
-
-      process(-100);
-      
-   } catch(invalid_argument& e) {
-       cerr<<"invalid arg: " << e.what()<<endl;
-   }
-
+	try {
+		process(-100);
+	} catch(invalid_argument& e) {
+		cerr<<"invalid arg: " << e.what()<<endl;
+	}
 }

@@ -1,109 +1,92 @@
-
-#include <cstdlib>
+//  在 boost 和 folly 中都有 scopeguard
 #include <iostream>
 #include <stack>
-
 using namespace std;
 
-template <typename F>
+template <typename F>  // 这个模板参数是一个可调用的函数对象
 class ScopeGuard
 {
 public:
-    template <typename T>
-    explicit ScopeGuard(T&& t) : m_func(std::forward<T>(t)), m_dismiss(false)
-    {
+	template <typename T> // 这个模板参数是一个可调用的函数对象
+	explicit ScopeGuard(T&& t) : m_func(std::forward<T>(t)), m_dismiss(false){}
 
-    }
+	explicit ScopeGuard(const F& f) : m_func(f), m_dismiss(false){}
 
-    explicit ScopeGuard(const F& f) : m_func(f), m_dismiss(false){}
+	~ScopeGuard()
+	{
+		if (!m_dismiss)
+			m_func();  //在析构 ScopeGuard 对象的时候回调 m_func
+	}
 
-    ~ScopeGuard()
-    {
-        if (!m_dismiss)
-            m_func();
-    }
+	ScopeGuard(ScopeGuard && rhs) :
+		m_func(std::move(rhs.m_func)), m_dismiss(rhs.m_dismiss){
+			rhs.dismiss();
+	}
 
-    ScopeGuard(ScopeGuard && rhs) :
-        m_func(std::move(rhs.m_func)), m_dismiss(rhs.m_dismiss){
-            rhs.dismiss();
-    }
+	ScopeGuard()=delete;
+	ScopeGuard(const ScopeGuard&)=delete;  // 没必要拷贝构造
+	ScopeGuard& operator=(const ScopeGuard&)=delete;
 
-    ScopeGuard()=delete;
-    ScopeGuard(const ScopeGuard&)=delete;
-    ScopeGuard& operator=(const ScopeGuard&)=delete;
-
-
-    void dismiss()
-    {
-        m_dismiss = true;
-    }
+	void dismiss()
+	{
+		m_dismiss = true;  // 解除 m_func 的调用
+	}
 
 private:
-    F m_func;
-    bool m_dismiss;
-
+	F m_func;
+	bool m_dismiss;
 };
 
 
 void FileProcess()
 {
-
-    FILE* fp = fopen("filename", "wb");
-    ScopeGuard scopeGuard(  [&]() { fclose(fp); }   );
-    // 文件处理....
-    //关闭文件
-    //fclose(fp);
+	FILE* fp = fopen("filename", "wb");  // FILE* 这不是一根指针,这是一个对象句柄,应该包装成为一个对象
+	ScopeGuard scopeGuard(  [&]() { fclose(fp); }   );
+	// 文件处理....
+	//关闭文件
+	//fclose(fp);
 }
 
 void invoke(int data)
 {
-        if(data<0)
-        {
-            invalid_argument exp("data");
-            throw exp;
-        }
+	if(data<0)
+	{
+		invalid_argument exp("data");
+		throw exp;
+	}
 }
 
 void process()
 {
-    {
-        stack<string> cityStack;
+	stack<string> cityStack;
 
-        cityStack.push("Shanghai"s);
-        auto lamb = [&](){
-            string s=cityStack.top();
-            cityStack.pop(); 
-            cout<<"roll back: "<<s<<endl;
-            };
-        // ScopeGuard scopeGuard{ [&]{ 
-        //     string s=cityStack.top();
-        //     cityStack.pop(); 
-        //     cout<<"roll back: "<<s<<endl;
-        //     }
-        // };
-        ScopeGuard scopeGuard1{lamb};
-        ScopeGuard scopeGuard2{[&](){
-            string s=cityStack.top();
-            cityStack.pop(); 
-            cout<<"roll back: "<<s<<endl;
-            }};
-  
-        cout<<"invoke..."<<endl;
-        invoke(-100);
+	cityStack.push("Shanghai"s);
+	auto lamb = [&](){
+		string s=cityStack.top();
+		cityStack.pop();
+		cout<<"roll back: "<<s<<endl;
+		};
+	ScopeGuard scopeGuard1{lamb};
+	ScopeGuard scopeGuard2{[&](){
+		string s=cityStack.top();
+		cityStack.pop();
+		cout<<"roll back: "<<s<<endl;
+		}};
 
-        scopeGuard1.dismiss();
-        scopeGuard2.dismiss();
-    }
+	cout<<"invoke..."<<endl;
+	invoke(-100);
 
+	scopeGuard1.dismiss();
+	scopeGuard2.dismiss();
 }
 
 
 int main(){
-    try {
-        process();
-   } catch(invalid_argument& e) {
-       cerr<<"invalid arg: " << e.what()<<endl;
-   }
+	try {
+		process();
+	} catch(invalid_argument& e) {
+		cerr<<"invalid arg: " << e.what()<<endl;
+	}
 }
 
 // class scope_guard {
