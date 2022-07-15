@@ -55,6 +55,10 @@ add_executable(dp3 Pimpl/dp3_Pimpl_idiom.cpp Pimpl/abi.h)
 add_executable(dp4_1 template_method/dp4_template_method_1.cpp)
 add_executable(dp4_2 template_method/dp4_template_method_2.cpp)
 add_executable(dp4_3 template_method/dp4_crtp_template_method.cpp)
+add_executable(dp5_1 strategy/dp5_strategy_1.cpp)
+add_executable(dp5_2 strategy/dp5_strategy_2.cpp)
+add_executable(dp5_3 strategy/dp5_policy_1.cpp)
+add_executable(dp5_4 strategy/dp5_policy_2.cpp)
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE
