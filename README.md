@@ -53,6 +53,8 @@ If you may add the different cpp files, you should add executable file in `CMake
 * 13 variadic templates and recursive programming [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.cpp)
 * 14 Default Initializers for Member Variables and POD [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.cpp)
 * 15 Return Value Optimization [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.cpp)
+* 16 Rule of Five
+
 
 #### Standard Library
 
@@ -63,6 +65,8 @@ If you may add the different cpp files, you should add executable file in `CMake
 * SL5 std::any [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.cpp)
 * SL6 std::function
 * SL7 std::string [Document]() [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl7_my_string.cpp)
+
+
 #### Template Techniques
 
 
@@ -76,6 +80,7 @@ If you may add the different cpp files, you should add executable file in `CMake
 * DP3 PImpl [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/dp3_Pimpl_idiom.md) [Code1](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/dp3_Pimpl_idiom.cpp) [Code2](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/abi.h)
 * DP4 Template Method [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method.md) [Code1](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method_1.cpp) [Code2](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method_2.cpp) [Code3](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_crtp_template_method.cpp)
 * DP5 Strategy design pattern and Policy-based idiom [Code1](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_strategy_1.cpp) [Code2](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_strategy_2.cpp) [Code3](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_policy_1.cpp) [Code4](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_policy_2.cpp)
+* DP6 Observer [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/observer)
 
 #### Memory Management
 

@@ -60,8 +60,6 @@ private:
 	ostringstream oss;
 };
 
-
-
 int main()
 {
 	// markdown
