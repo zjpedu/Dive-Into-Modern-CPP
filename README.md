@@ -3,11 +3,10 @@
 ![](https://img.shields.io/github/license/zjpedu/Dive-Into-Modern-CPP.svg)
 ![](https://img.shields.io/github/forks/zjpedu/Dive-Into-Modern-CPP.svg)
 
-## Dive Into Modern CPlusPlus
+## Dive Into Modern C++
 
-The project is aim to dive into c++ new features for languages and standard library.
-It is important to understand the nature of the new features. The C++ language
-is getting better and better. These features are what I usually use more often.
+The project is aim to dive into c++ new features for languages, standard library, design pattern and memory management.
+It is important to understand the nature of the dark magic. The C++ language is getting better and better.
 
 ### C++ Standard
 
@@ -35,22 +34,22 @@ F5  # debug launch.json
 
 If you may add the different cpp files, you should add executable file in `CMakeLists.txt`.
 
-### Outline of New Features
+### Outline of Dark Magic
 
-#### Languages
+#### Language Features
 * 01 final and override [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.cpp)
 * 02 lambda and functor [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/02_lambda.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/02_lambda.cpp)
 * 03 `typdef`, `typename` and `using` [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/03_typedef_using.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/03_typedef_using.cpp)
 * 04 enum [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/04_enum.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/04_enum.cpp)
 * 05 auto, decltype and deducing types [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/05_auto_decltype.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/05_auto_decltype.cpp)
-* 06 std::initializer_list and uniform initialization (一致初始化) [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.cpp)
+* 06 std::initializer_list and uniform initialization [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.cpp)
 * 07 Covariant Return Types [Document](https://quuxplusone.github.io/blog/2019/01/20/covariance-and-contravariance/)
 * 08 noexcept [Document]() [Code]()
 * 09 smart pointer [Document]() [Code]()
 * 10 universal reference, rvalue reference, move-aware class, move semantics, and perfect forwading [Document]() [Code]()
 * 11 inline [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_1.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_2.cpp)
 * 12 nullptr, 0, and NULL [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.cpp)
-* 13 variadic templates and recursive programming [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.cpp)
+* 13 From variadic templates to Fold Expression: An Template Recursive Techniques [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.cpp)
 * 14 Default Initializers for Member Variables and POD [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.cpp)
 * 15 Return Value Optimization [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.cpp)
 * 16 Rule of Five
@@ -58,13 +57,13 @@ If you may add the different cpp files, you should add executable file in `CMake
 
 #### Standard Library
 
-* SL1 type trait and C++ template [Document]() [Code]()
+* SL1 type trait [Document]() [Code]()
 * SL2 std::bind [Document]() [Code]()
 * SL3 hash<T> [Document]() [Code]()
 * SL4 Allocator [Document]() [Code]()
 * SL5 std::any [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.cpp)
 * SL6 std::function
-* SL7 std::string [Document]() [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl7_my_string.cpp)
+* SL7 std::string [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl7_my_string.cpp)
 
 
 #### Template Techniques
@@ -80,7 +79,8 @@ If you may add the different cpp files, you should add executable file in `CMake
 * DP3 PImpl [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/dp3_Pimpl_idiom.md) [Code1](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/dp3_Pimpl_idiom.cpp) [Code2](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/Pimpl/abi.h)
 * DP4 Template Method [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method.md) [Code1](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method_1.cpp) [Code2](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method_2.cpp) [Code3](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_crtp_template_method.cpp)
 * DP5 Strategy design pattern and Policy-based idiom [Code1](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_strategy_1.cpp) [Code2](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_strategy_2.cpp) [Code3](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_policy_1.cpp) [Code4](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_policy_2.cpp)
-* DP6 Observer [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/observer)
+* DP6 Observer Design Pattern [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/observer) The design pattern is very important.
+* DP7 Factory
 
 #### Memory Management
 
