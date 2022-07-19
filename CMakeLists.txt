@@ -1,3 +1,4 @@
+# https://www.hahack.com/codes/cmake/
 cmake_minimum_required(VERSION 3.10)
 
 # 设置PROJECT_NAME变量

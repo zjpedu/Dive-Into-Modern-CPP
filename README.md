@@ -44,25 +44,24 @@ If you may add the different cpp files, you should add executable file in `CMake
 * 05 auto, decltype and deducing types [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/05_auto_decltype.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/05_auto_decltype.cpp)
 * 06 std::initializer_list and uniform initialization [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.cpp)
 * 07 Covariant Return Types [Document](https://quuxplusone.github.io/blog/2019/01/20/covariance-and-contravariance/)
-* 08 noexcept [Document]() [Code]()
-* 09 smart pointer [Document]() [Code]()
-* 10 universal reference, rvalue reference, move-aware class, move semantics, and perfect forwading [Document]() [Code]()
+* 08
+* 09 Rule of Five [Document]() [Code]()
+* 10
 * 11 inline [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_1.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_2.cpp)
 * 12 nullptr, 0, and NULL [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.cpp)
 * 13 From variadic templates to Fold Expression: An Template Recursive Techniques [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.cpp)
 * 14 Default Initializers for Member Variables and POD [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.cpp)
 * 15 Return Value Optimization [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.cpp)
-* 16 Rule of Five
 
 
 #### Standard Library
 
-* SL1 type trait [Document]() [Code]()
+* SL1
 * SL2 std::bind [Document]() [Code]()
 * SL3 hash<T> [Document]() [Code]()
 * SL4 Allocator [Document]() [Code]()
 * SL5 std::any [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl5_any.cpp)
-* SL6 std::function
+* SL6 std::function [Document]() [Code]()
 * SL7 std::string [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/sl7_my_string.cpp)
 
 
@@ -83,6 +82,11 @@ If you may add the different cpp files, you should add executable file in `CMake
 
 * MM1 class memory layout [imgs1](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_1.jpeg) [imgs2](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_2.jpeg) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm1_memory_layout.cpp)
 * MM2 object layout and EBCO [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm2_object_layout_ebco.cpp)
+* MM3 smart pointer [Document]() [Code]()
+* MM4 move semantics [Document]() [Code]()
+
+
+#### Coroutines
 
 
 ### Contribute

@@ -62,7 +62,8 @@ namespace test_variadic_template{
 	// template <typename ...Args>
 	// void print(Args... args)
 	// {
-	// 	int arr[] = {(print(args),0)...};
+	// 	// int arr[] = {(print(args),0)...};
+	// 	std::initializer_list<int> arr{(print(args),0)...};
 	// }
 
 	// template <typename... Args>
@@ -114,9 +115,17 @@ namespace test_variadic_template{
 	// 	Head head() {return m_head;};
 	// 	composited& tail(){return m_tail;};
 	// };
+
+	template <typename... Args>
+	void unpack(Args... args){
+		int arr[] = {(args, 0)...};  // 这里和上面的代码有区别
+		for(int i = 0; i < sizeof...(args); ++i)
+			std::cout << arr[i] << std::endl;
+	}
 	int  main(){
 		// std::string str("hello");
 		// print(1, 3.14, str, "world!");
+		unpack(1, 3.14, "hello");
 		// recursive_sum(1, 3.14);
 		// std::cout << sum << std::endl;
 		// std::cout << recursive_sum(1, 3.14) << std::endl;
@@ -160,33 +169,50 @@ namespace test_fold_expression{
 	// }
 
 
-	template<typename... Types>
-	void print1(Types... args){
-		// 一元左折叠 (... 运算符 E) 成为 (((E1 运算符 E2) 运算符 ...) 运算符 EN)
-		// 1 << 3.14 << "hello"
-		(std::cout << ... << args) << std::endl;  // 括号是必须的，一元左折叠
-	}
-	template<typename... Types>
-	void print2(Types... args){
-		// 一元右折叠 (E 运算符 ...) 成为 (E1 运算符 (... 运算符 (EN-1 运算符 EN)))
-		// 1 << 3.14 << "hello"
-		((std::cout << args << std::endl), ...) ;  // 括号是必须的，一元右折叠，这个方法更好一些
-	}
-	int main(){
-		// std::cout << sum1(1, 3.14) << std::endl;
-		// std::cout << sum2(1, 3.14) << std::endl;
-		// std::cout << sum3(1, 3.14) << std::endl;
-		// std::cout << sum4(1, 3.14) << std::endl;
-		// std::cout << sum5(1, 3.14) << std::endl;
-		//  std::cout << sum6(1, 3.14) << std::endl;
-		print1(1, 3.14, "hello");
-		print2(1, 3.14, "hello");
-		return 0;
-	}
+	// template<typename... Types>
+	// void print1(Types... args){
+	// 	(std::cout << ... << args) << std::endl; 
+	// }
+	
+	// template<typename... Types>
+	// void print2(Types... args){
+	// 	((std::cout << args << std::endl), ...) ;
+	// }
+
+	// template<typename... Types>
+	// void print3(Types... args){
+	// 	(..., (std::cout << args << std::endl)); 
+	// }
+
+	// template <typename T>
+	// void printArg(T t){
+	// 	std::cout << t << std::endl;
+	// }
+	// template <typename... Types>
+	// void print4(Types... args){
+	// 	(printArg(args), ...);
+	// }
+	// int main(){
+	// 	std::cout << sum1(1, 3.14) << std::endl;
+	// 	std::cout << sum2(1, 3.14) << std::endl;
+	// 	std::cout << sum3(1, 3.14) << std::endl;
+	// 	std::cout << sum4(1, 3.14) << std::endl;
+	// 	std::cout << sum5(1, 3.14) << std::endl;
+	// 	 std::cout << sum6(1, 3.14) << std::endl;
+	// 	print1(1, 3.14, "hello");
+	// 	std::cout << "---- print1 end ----" << std::endl;
+	// 	print2(1, 3.14, "hello");
+	// 	std::cout << "---- print2 end ----" << std::endl;
+	// 	print3(1, 3.14, "hello");
+	// 	std::cout << "---- print3 end ----" << std::endl;
+	// 	print4(1, 3.14, "hello");
+	// 	std::cout << "---- print4 end ----" << std::endl;
+	// 	return 0;
+	// }
 }
 
 int main(){
-	// test_variadic_template::main();
-	test_fold_expression::main();
+	test_variadic_template::main();
+	// test_fold_expression::main();
 	return 0;
 }

@@ -191,9 +191,9 @@ int  main(){
 	unpack(1,2,3);
 	return 0;
 }
-// 编译给出警告，expression result unused [-Wunused-value]，说明 args 被展开了
+// 编译给出 warning: expression result unused [-Wunused-value]，说明 args 被展开了
 // 输出结果为 0 0 0
-// 这种情况下，我们没有处理 args 表达式展开的结果，怎么处理呢？
+// 这种情况下，我们没有处理 args 表达式展开的结果，怎么处理呢？接着看。
 ```
 
 所以我们得知 {args...} 会解开 pack，但是我们需要处理 args 中的每个元素，这应该怎么办呢？
@@ -209,6 +209,7 @@ void print(Args... args)
 {
 	// 这个 arr 的大小为 sizeof...(args), 元素全部为 0
 	int arr[] = {(print(args),0)...};
+	// std::initializer_list<int> arr{(print(args),0)...}; // 与上面等价
 }
 int  main(){
 	print(1,2,3);
@@ -218,6 +219,7 @@ int  main(){
 
 这是什么原理呢？实际上把 args 传递给一个模板函数，处理其中的每一个元素，并且利用了 () 表达式的求值方式同时也定义了一个元素全部
 为 0 的数组，从而实现了与递归解包一样的功能。C++ 11 中还引入了 lambda 表示，是否能够替换显示处理每个元素的 print 函数呢？
+当然所有可调用的对象都可以传入 print 函数处理 args 展开的参数值。
 
 ```C++
 template <typename F, typename ...Args>
@@ -325,36 +327,36 @@ int  main(){
 
 折叠表达式是 C++ 17 引入的新特性，它能解决**变参模板函数**引入的解包问题，该技术相对之前部分较为简洁。
 
-需求同样是实现 1+ 3.14 求和的例子，当然你可以传递更多的参数.
+需求同样是实现 1 + 3.14 求和的例子，当然你可以传递更多的参数.
 
 ```C++
 template<typename... Types>
 double sum1(Types... args){
-	return (... + args);  // 这里必须要加括号, 一元左折叠
+	return (... + args);  // 这里必须要加括号
 }
 
 template<typename T, typename... Types>
 double sum2(T first, Types...args){
-	return (first + ... + args); // 二元左折叠
+	return (first + ... + args);
 }
 
 template <typename... Types>
 double sum3(Types... args){
-	return (args + ...);  // 一元右折叠
+	return (args + ...);
 }
 
 template<typename T, typename... Types>
 double sum4(T first, Types...args){
-	return (args + ... + first); // 二元右折叠
+	return (args + ... + first);
 }
 
 template<typename... Types>
 double sum5(Types...args){
-	return (args + ... + 0); // 二元右折叠
+	return (args + ... + 0);
 }
 template<typename... Types>
 double sum6(Types...args){
-	return (0 + ... + args); // 二元左折叠
+	return (0 + ... + args);
 }
 int main(){
 	std::cout << sum1(1, 3.14) << std::endl;
@@ -372,19 +374,36 @@ int main(){
 ```C++
 template<typename... Types>
 void print1(Types... args){
-	// 一元左折叠 (... 运算符 E) 成为 (((E1 运算符 E2) 运算符 ...) 运算符 EN)
-	// 1 << 3.14 << "hello"
-	(std::cout << ... << args) << std::endl;  // 括号是必须的，一元左折叠
+	(std::cout << ... << args) << std::endl; 
 }
+
 template<typename... Types>
 void print2(Types... args){
-	// 一元右折叠 (E 运算符 ...) 成为 (E1 运算符 (... 运算符 (EN-1 运算符 EN)))
-	// 1 << 3.14 << "hello"
-	((std::cout << args << std::endl), ...) ;  // 括号是必须的，一元右折叠，这个方法更好一些
+	((std::cout << args << std::endl), ...) ;
+}
+
+template<typename... Types>
+void print3(Types... args){
+	(..., (std::cout << args << std::endl)); 
+}
+
+template <typename T>
+void printArg(T t){
+	std::cout << t << std::endl;
+}
+template <typename... Types>
+void print4(Types... args){
+	(printArg(args), ...);   // C++ 17 这样子就可以展开了
 }
 int main(){
 	print1(1, 3.14, "hello");
+	std::cout << "---- print1 end ----" << std::endl;
 	print2(1, 3.14, "hello");
+	std::cout << "---- print2 end ----" << std::endl;
+	print3(1, 3.14, "hello");
+	std::cout << "---- print3 end ----" << std::endl;
+	print4(1, 3.14, "hello");
+	std::cout << "---- print4 end ----" << std::endl;
 	return 0;
 }
 ```
@@ -396,4 +415,5 @@ int main(){
 
 ### 参考文献
 1. 折叠表达式 https://zh.cppreference.com/w/cpp/language/fold
-2. 变参模板 https://www.cnblogs.com/qicosmos/p/4325949.html
+2. 变参模板 https://www.cnblogs.com/qicosmos/p/4325949.html 
+3. 折叠表达式 http://purecpp.org/detail?id=1289
