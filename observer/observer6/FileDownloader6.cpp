@@ -3,7 +3,7 @@
 using namespace std;
 
 
-using ProgressListener = std::function<void(float)>;
+using ProgressListener = std::function<void(float)>;  // 缺点失去了前面的比较相等的问题
 
 
 class Subject
@@ -42,16 +42,18 @@ public:
 
 	}
 	void download(){
-		//1.下载动作
+		//1.网络下载准备
+		std::cout << "文件下载准备" << std::endl;
+		//2.文件流处理
+		std::cout << "文件正在处理" << std::endl;
 
-		//2.设置进度
+		//3.设置进度
 		for (int i = 0; i < m_fileNumber; i++){
 			//...
 			float progressValue = m_fileNumber;
 			progressValue = (i + 1) / progressValue;
 			Subject::onProgress(progressValue);//通知观察者
 		}
-
 	}
 };
 
@@ -68,9 +70,8 @@ struct ConsoleProgressObserver
 
 int main(){
 
-	FileDownloader fd("https://boolan.com/bigfile", 10);
+	FileDownloader fd("https://www.baidu.com", 10);
 
-	 
 	fd.addIProgress(ConsoleProgressObserver{});
 	fd.addIProgress([](float value){ cout<< value<<endl;});
 	fd.addIProgress([](float value){ cout<< value<<endl;});

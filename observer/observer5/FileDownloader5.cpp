@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+// 隐式约定
 // struct ProgressObserver{
 // 	void operator()(float value)
 // 	{
@@ -14,14 +15,14 @@ template<typename ProgressObserver>
 class Subject
 {
 private:
-	list<ProgressObserver>  m_iprogressList;
+	list<ProgressObserver>  m_iprogressList;  // 所有的观察者就是遵从上述隐式约定的函数对象
 
 public:
 	void addIProgress(const ProgressObserver& iprogress){
 		m_iprogressList.push_back(iprogress);
 	}
 	void removeIProgress(const ProgressObserver& iprogress){
-		m_iprogressList.remove(iprogress);
+		m_iprogressList.remove(iprogress);  // list 的 remove 函数需要调用 operator== 操作符，所以需要这个观察者对象重载 operator== 才行，否则报错
 	}
 
 protected:
@@ -47,14 +48,17 @@ public:
 
 	}
 	void download(){
-		//1.下载动作
+		//1.网络下载准备
+		std::cout << "文件下载准备" << std::endl;
+		//2.文件流处理
+		std::cout << "文件正在处理" << std::endl;
 
-		//2.设置进度
+		//3.设置进度
 		for (int i = 0; i < m_fileNumber; i++){
 			//...
 			float progressValue = m_fileNumber;
 			progressValue = (i + 1) / progressValue;
-			onProgress(progressValue);//通知观察者
+			Subject<ProgressObserver>::onProgress(progressValue);//通知观察者
 		}
 
 	}
@@ -91,7 +95,7 @@ struct ProgressBarObserver
 
 int main(){
 
-	FileDownloader<ConsoleProgressObserver> fd("https://boolan.com/bigfile", 15);
+	FileDownloader<ConsoleProgressObserver> fd("https://baidu.com", 15);
 	//FileDownloader<ProgressBarObserver> fd2(...);
 
 	ConsoleProgressObserver pob(101);

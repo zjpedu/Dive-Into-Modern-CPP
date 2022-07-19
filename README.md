@@ -69,9 +69,6 @@ If you may add the different cpp files, you should add executable file in `CMake
 #### Template Techniques
 
 
-#### Concurrency
-
-
 #### Design Pattern and Idiom
 
 * DP1 ScopeGuard and RAII [Document]() [ScopeGuard Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_scopeguard.cpp) [RAII Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/dp1_raii.cpp)
@@ -86,6 +83,7 @@ If you may add the different cpp files, you should add executable file in `CMake
 
 * MM1 class memory layout [imgs1](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_1.jpeg) [imgs2](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_2.jpeg) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm1_memory_layout.cpp)
 * MM2 object layout and EBCO [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm2_object_layout_ebco.cpp)
+
 
 ### Contribute
 

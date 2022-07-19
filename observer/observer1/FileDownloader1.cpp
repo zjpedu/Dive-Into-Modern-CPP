@@ -1,13 +1,19 @@
+#include <iostream>
+#include <memory>
+#include "Form.cpp"
+/*
+	进度条 ProgressBar 尽然和 FileDownloader 耦合在一起
+*/
 class FileDownloader
 {
-	string m_filePath;
+	std::string m_filePath;
 	int m_fileNumber;
-	shared_ptr<ProgressBar> m_progressBar;
+	std::shared_ptr<ProgressBar> m_progressBar;
 
 public:
-	FileDownloader(const string& filePath, 
+	FileDownloader(const std::string& filePath, 
 	int fileNumber, 
-	shared_ptr<ProgressBar> progressBar) :
+	std::shared_ptr<ProgressBar> progressBar) :
 		m_filePath(filePath), 
 		m_fileNumber(fileNumber),
 		m_progressBar(progressBar)
@@ -16,9 +22,9 @@ public:
 	}
 	void download(){
 		//1.网络下载准备
-
+		std::cout << "文件下载准备" << std::endl;
 		//2.文件流处理
-
+		std::cout << "文件正在处理" << std::endl;
 		//3.设置进度条
 		for (int i = 0; i < m_fileNumber; i++){
 			//...
@@ -27,5 +33,6 @@ public:
 			m_progressBar->setValue(progressValue);
 		}
 		//4.文件存储
+		std::cout << "文件保存" << std::endl;
 	}
 };

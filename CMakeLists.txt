@@ -61,6 +61,13 @@ add_executable(dp5_1 strategy/dp5_strategy_1.cpp)
 add_executable(dp5_2 strategy/dp5_strategy_2.cpp)
 add_executable(dp5_3 strategy/dp5_policy_1.cpp)
 add_executable(dp5_4 strategy/dp5_policy_2.cpp)
+add_executable(dp6_1 observer/observer1/FileDownloader1.cpp observer/observer1/MainForm1.cpp observer/observer1/main.cpp)
+add_executable(dp6_2 observer/observer2/FileDownloader2.cpp observer/observer2/MainForm2.cpp observer/observer2/main.cpp)
+add_executable(dp6_3 observer/observer3/FileDownloader3.cpp observer/observer3/MainForm3.cpp observer/observer3/main.cpp)
+add_executable(dp6_4 observer/observer4/FileDownloader4.cpp observer/observer4/MainForm4.cpp observer/observer4/main.cpp)
+add_executable(dp6_5 observer/observer5/FileDownloader5.cpp)
+add_executable(dp6_6 observer/observer6/FileDownloader6.cpp)
+
 
 # Iterator the files to automatically get the executable file
 # file(GLOB_RECURSE _sources RELATIVE
