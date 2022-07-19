@@ -1,5 +1,6 @@
 // https://code.visualstudio.com/docs/editor/tasks
 // https://code.visualstudio.com/docs/editor/variables-reference
+// "problemMatcher" 报错，暂时注释掉，暂时还没有找到 RCA
 {
     "tasks": [
         {
@@ -23,7 +24,12 @@
 				"clear": true
 			},
 			// Use the gcc compiler pattern to detect errors, warnings and infos
-			"problemMatcher": "$gcc",
+			// "problemMatcher": {
+			// 	"base": "$g++",
+			// 	"fileLocation": [
+            //         "/usr/bin/g++"
+            //     ]
+			// },
 			"dependsOn":["mkbuild"]  // 依赖的任务，在本任务执行前先执行mkbuild任务
         },
 		{
@@ -43,9 +49,12 @@
 				"showReuseMessage": true,
 				"clear": true
 			},
-			"problemMatcher": [
-                "$gcc"
-            ],
+			// "problemMatcher": {
+			// 	"base": "$g++",
+			// 	"fileLocation": [
+            //         "/usr/bin/g++"
+            //     ]
+			// },
 		},
 		{
 			"label": "compile",
@@ -61,12 +70,17 @@
 				"clear": true
 			},
 			// Use the gcc compiler pattern to detect errors, warnings and infos
-			"problemMatcher": "$gcc"
+			// "problemMatcher": {
+			// 	"base": "$g++",
+			// 	"fileLocation": [
+            //         "/usr/bin/g++"
+            //     ]
+			// },
 		},
 		{
 			"label": "run",
 			"type": "shell",
-			"command": "${cwd}/build/dp2_1", // 这里需要频繁修改
+			"command": "${cwd}/build/dp6_1", // 这里需要频繁修改
 			"group": "build",
 			"presentation": {
 				"echo": true,
@@ -80,7 +94,13 @@
 				"cwd": "build"
 			},
 			// Use the gcc compiler pattern to detect errors, warnings and infos
-			"problemMatcher": "$gcc",
+			// "problemMatcher": {
+			// 	"base": "g++",
+			// 	"fileLocation": [
+            //         "absolute",
+			// 		"/usr/bin/g++"
+            //     ]
+			// },
 			"dependsOn":["compile"]  // 在run任务执行前先执行compile任务，确保修改的代码生效
 		}
     ],
