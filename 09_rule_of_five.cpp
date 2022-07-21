@@ -26,7 +26,7 @@ public:
 			return *this;
 		}
 		Foo tmp(other);
-		std::swap(this->mRef->data, other.mRef->data);
+		mRef.swap(tmp.mRef);
 		std::cout << "Foo copy assignment" << std::endl;
 		return *this;
 	}
