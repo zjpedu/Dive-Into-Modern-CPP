@@ -37,18 +37,18 @@ If you may add the different cpp files, you should add executable file in `CMake
 ### Outline of Dark Magic
 
 #### Language Features
-* 01 final and override [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.cpp)
+* 01 `final` and `override` [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/01_final_override.cpp)
 * 02 lambda and functor [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/02_lambda.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/02_lambda.cpp)
 * 03 `typdef`, `typename` and `using` [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/03_typedef_using.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/03_typedef_using.cpp)
-* 04 enum [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/04_enum.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/04_enum.cpp)
-* 05 auto, decltype and deducing types [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/05_auto_decltype.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/05_auto_decltype.cpp)
-* 06 std::initializer_list and uniform initialization [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.cpp)
+* 04 `enum` [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/04_enum.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/04_enum.cpp)
+* 05 `auto`, `decltype` and deducing types [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/05_auto_decltype.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/05_auto_decltype.cpp)
+* 06 initializer list and uniform initialization [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/06_initializer_list.cpp)
 * 07 Covariant Return Types [Document](https://quuxplusone.github.io/blog/2019/01/20/covariance-and-contravariance/)
-* 08
-* 09 Rule of Five [Document]() [Code]()
-* 10
-* 11 inline [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_1.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_2.cpp)
-* 12 nullptr, 0, and NULL [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.cpp)
+* 08 `explicit` [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/08_explicit.cpp)
+* 09 Rule of Five [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/09_rule_of_five.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/09_rule_of_five.cpp)
+* 10 How to write special member functions correctly in modern C++ [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/10_smfd.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/10_smfd.cpp)
+* 11 `inline` [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/11_inline.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_1.cpp) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/test_inline_2.cpp)
+* 12 `nullptr`, 0, and `NULL` [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/12_nullptr.cpp)
 * 13 From variadic templates to Fold Expression: An Template Recursive Techniques [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/13_variadic_template.cpp)
 * 14 Default Initializers for Member Variables and POD [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/14_default_initializer.cpp)
 * 15 Return Value Optimization [cppreference](https://en.cppreference.com/w/cpp/language/copy_elision) [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.md) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/15_rvo.cpp)
@@ -76,14 +76,15 @@ If you may add the different cpp files, you should add executable file in `CMake
 * DP4 Template Method [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method.md) [Code1](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method_1.cpp) [Code2](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_template_method_2.cpp) [Code3](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/template_method/dp4_crtp_template_method.cpp)
 * DP5 Strategy design pattern and Policy-based idiom [Code1](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_strategy_1.cpp) [Code2](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_strategy_2.cpp) [Code3](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_policy_1.cpp) [Code4](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/strategy/dp5_policy_2.cpp)
 * DP6 Observer Design Pattern [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/observer) The design pattern is very important.
-* DP7 Factory
+* DP7 Factory Design Pattern
 
 #### Memory Management
 
 * MM1 class memory layout [imgs1](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_1.jpeg) [imgs2](https://github.com/zjpedu/Dive-Into-Modern-CPP/blob/main/imgs/memory_align_2.jpeg) [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm1_memory_layout.cpp)
 * MM2 object layout and EBCO [Code](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/mm2_object_layout_ebco.cpp)
-* MM3 smart pointer [Document]() [Code]()
-* MM4 move semantics [Document]() [Code]()
+* MM3 virtual function layout
+* MM4 smart pointer [Document](https://github.com/jpzhu-edu/Dive-Into-Modern-CPP/blob/main/smart-pointer/mm4_smart_pointer.md) [unique_ptr](https://github.com/jpzhu-edu/Dive_Into_Modern_CPP/blob/main/smart_pointer/mm4_smart_pointer_unique.cpp) [shared_ptr](https://github.com/jpzhu-edu/Dive_Into_Modern_CPP/blob/main/smart_pointer/mm4_smart_pointer_shared.cpp)
+* MM5 move semantics [Document]() [Code]()
 
 
 #### Coroutines

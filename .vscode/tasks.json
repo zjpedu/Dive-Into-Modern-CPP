@@ -4,18 +4,18 @@
 {
     "tasks": [
         {
-            "label": "cmake",  // task的名字
+            "label": "cmake",
 			"type": "shell",
 			"command": "cmake",
 			"args": [
-				"-DCMAKE_BUILD_TYPE=Debug",  // debug
+				"-DCMAKE_BUILD_TYPE=Debug",
 				".."
 			],
 			"options": {
-				"cwd": "build"  // 表示当前执行目录build文件夹
+				"cwd": "build"
 			},
 			"group": "build",
-			"presentation": {  // 一些控制台显示配置
+			"presentation": {
 				"echo": true,
 				"reveal": "always",
 				"focus": false,
@@ -24,19 +24,19 @@
 				"clear": true
 			},
 			// Use the gcc compiler pattern to detect errors, warnings and infos
-			// "problemMatcher": {
-			// 	"base": "$g++",
-			// 	"fileLocation": [
-            //         "/usr/bin/g++"
-            //     ]
-			// },
-			"dependsOn":["mkbuild"]  // 依赖的任务，在本任务执行前先执行mkbuild任务
+			"problemMatcher": {
+				"base": "$g++",
+				// "fileLocation": [
+                //     "/usr/bin/g++"
+                // ]
+			},
+			"dependsOn":["mkbuild"]
         },
 		{
 			"label": "mkbuild",
 			"type": "shell",
-			"command": "mkdir",  // 调用的命令
-			"args": [  // 命令参数
+			"command": "mkdir",
+			"args": [
 				"-p",
 				"build"
 			],
@@ -49,12 +49,12 @@
 				"showReuseMessage": true,
 				"clear": true
 			},
-			// "problemMatcher": {
-			// 	"base": "$g++",
-			// 	"fileLocation": [
-            //         "/usr/bin/g++"
-            //     ]
-			// },
+			"problemMatcher": {
+				"base": "$g++",
+				// "fileLocation": [
+                //     "/usr/bin/g++"
+                // ]
+			},
 		},
 		{
 			"label": "compile",
@@ -70,17 +70,17 @@
 				"clear": true
 			},
 			// Use the gcc compiler pattern to detect errors, warnings and infos
-			// "problemMatcher": {
-			// 	"base": "$g++",
-			// 	"fileLocation": [
-            //         "/usr/bin/g++"
-            //     ]
-			// },
+			"problemMatcher": {
+				"base": "$g++",
+				// "fileLocation": [
+                //     "/usr/bin/g++"
+                // ]
+			},
 		},
 		{
 			"label": "run",
 			"type": "shell",
-			"command": "${cwd}/build/dp6_1", // 这里需要频繁修改
+			"command": "${cwd}/build/test9",
 			"group": "build",
 			"presentation": {
 				"echo": true,
@@ -94,14 +94,14 @@
 				"cwd": "build"
 			},
 			// Use the gcc compiler pattern to detect errors, warnings and infos
-			// "problemMatcher": {
-			// 	"base": "g++",
-			// 	"fileLocation": [
-            //         "absolute",
-			// 		"/usr/bin/g++"
-            //     ]
-			// },
-			"dependsOn":["compile"]  // 在run任务执行前先执行compile任务，确保修改的代码生效
+			"problemMatcher": {
+				"base": "g++",
+				// "fileLocation": [
+                //     "absolute",
+				// 	"/usr/bin/g++"
+                // ]
+			},
+			"dependsOn":["compile"]
 		}
     ],
     "version": "2.0.0"
