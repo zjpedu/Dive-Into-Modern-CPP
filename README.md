@@ -14,7 +14,7 @@ C++ 11, C++ 14, C++ 17, and C++ 20 are used usually.
 
 ### How to run the project
 
-In macos,I use the vscode to `mkbuild`, `cmake`, `compile`, and `run` the project.
+In macos,I use the vscode to `mkbuild`, `cmake`, `compile`, `run`, and `rmbuild` the project.
 I write the `tasks.json` and `launch.json` files to use easily the project.
 
 ```shell
@@ -27,6 +27,7 @@ Then select the following options:
 2. cmake. It will issue the Makefile.
 3. compile. It will build the project.
 4. run. It will run the some executable file in tasks.json.
+5. rmbuild. It can help you to delete the build file, which can re-generate the build files.
 
 ```shell
 F5  # debug launch.json
