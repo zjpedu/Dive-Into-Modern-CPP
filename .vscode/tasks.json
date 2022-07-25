@@ -1,10 +1,9 @@
 // https://code.visualstudio.com/docs/editor/tasks
 // https://code.visualstudio.com/docs/editor/variables-reference
-// "problemMatcher" 报错，暂时注释掉，暂时还没有找到 RCA
 {
     "tasks": [
-        {
-            "label": "cmake",
+		{
+			"label": "cmake",
 			"type": "shell",
 			"command": "cmake",
 			"args": [
@@ -23,15 +22,10 @@
 				"showReuseMessage": true,
 				"clear": true
 			},
-			// Use the gcc compiler pattern to detect errors, warnings and infos
-			"problemMatcher": {
-				"base": "$g++",
-				// "fileLocation": [
-                //     "/usr/bin/g++"
-                // ]
-			},
-			"dependsOn":["mkbuild"]
-        },
+			"dependsOn": [
+				"mkbuild"
+			]
+		},
 		{
 			"label": "mkbuild",
 			"type": "shell",
@@ -48,13 +42,25 @@
 				"panel": "shared",
 				"showReuseMessage": true,
 				"clear": true
-			},
-			"problemMatcher": {
-				"base": "$g++",
-				// "fileLocation": [
-                //     "/usr/bin/g++"
-                // ]
-			},
+			}
+		},
+		{
+			"label": "rmbuild",
+			"type": "shell",
+			"command": "rm",
+			"args": [
+				"-rf",
+				"build"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			}
 		},
 		{
 			"label": "compile",
@@ -65,22 +71,14 @@
 			},
 			"group": "build",
 			"presentation": {
-				// Reveal the output only if unrecognized errors occur.
 				"reveal": "always",
 				"clear": true
-			},
-			// Use the gcc compiler pattern to detect errors, warnings and infos
-			"problemMatcher": {
-				"base": "$g++",
-				// "fileLocation": [
-                //     "/usr/bin/g++"
-                // ]
-			},
+			}
 		},
 		{
 			"label": "run",
 			"type": "shell",
-			"command": "${cwd}/build/test9",
+			"command": "${cwd}/build/test",
 			"group": "build",
 			"presentation": {
 				"echo": true,
@@ -93,16 +91,10 @@
 			"options": {
 				"cwd": "build"
 			},
-			// Use the gcc compiler pattern to detect errors, warnings and infos
-			"problemMatcher": {
-				"base": "g++",
-				// "fileLocation": [
-                //     "absolute",
-				// 	"/usr/bin/g++"
-                // ]
-			},
-			"dependsOn":["compile"]
-		}
-    ],
+			"dependsOn": [
+				"compile"
+			]
+		},
+	],
     "version": "2.0.0"
 }
