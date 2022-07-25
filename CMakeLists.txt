@@ -41,7 +41,6 @@ add_executable(test12 12_nullptr.cpp)
 add_executable(test13 13_variadic_template.cpp)
 add_executable(test14 14_default_initializer.cpp)
 add_executable(test15 15_rvo.cpp)
-add_executable(test test.cpp)
 # add_executable(test_hanoi hanoi.cpp)
 
 
@@ -53,6 +52,7 @@ add_executable(mm2 mm2_object_layout_ebco.cpp)
 add_executable(mm3 mm3_virtual_function_layout.cpp)
 add_executable(mm4_1 smart_pointer/mm4_smart_pointer_unique.cpp)
 add_executable(mm4_2 smart_pointer/mm4_smart_pointer_shared.cpp)
+add_executable(mm4_3 smart_pointer/nest_smart_pointer.cpp)
 
 add_executable(dp1 dp1_scopeguard.cpp)
 add_executable(dp1_raii dp1_raii.cpp)
